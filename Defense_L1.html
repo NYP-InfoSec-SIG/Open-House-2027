@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    table {
+        display: inline-block;
+        align-self: Left;
+        border-style: solid;
+
+    }
+
+    th {
+        min-width: 100px
+    }
+
+    form {
+        display: inline-block
+    }
+</style>
+
+
+<body>
+    <p>
+        DEFENSE SCENARIO PLACEHOLDER
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="min-width: 50px;">ID</th>
+                <th style="min-width: 150px;">Source</th>
+                <th>Timestamp</th>
+                <th>Action</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tr id="0">
+            <td>1</td>
+            <td>10.1.2.3</td>
+            <td>2026/10/05 17:22:31:056</td>
+            <td>Login</td>
+            <td>Success</td>
+        </tr>
+        <tr id="1">
+            <td>2</td>
+            <td>127.33.2.12</td>
+            <td>2026/10/05 17:22:31:061</td>
+            <td>Login</td>
+            <td>Failure</td>
+        </tr>
+        <tr id="2">
+            <td>3</td>
+            <td>127.33.2.12</td>
+            <td>2026/10/05 17:22:33:589</td>
+            <td>Login</td>
+            <td>Failure</td>
+        </tr>
+        <tr id="3">
+            <td>4</td>
+            <td>127.33.2.12</td>
+            <td>2026/10/05 17:22:40:609</td>
+            <td>Login</td>
+            <td>Failure</td>
+        </tr>
+        <tr id="4">
+            <td>5</td>
+            <td>127.33.2.12</td>
+            <td>2026/10/05 17:22:42:324</td>
+            <td>Login</td>
+            <td>Success</td>
+        </tr>
+
+    </table>
+    
+    <p>
+        Helping paragraph
+    </p>
+
+    <label for="IP">Which IP address looks suspicious?</label>
+    <br>
+    <input type="text" style='display:block; margin:auto;' id="IP">
+    <br>
+    <input type="button" value="Submit" onclick="verify()">
+    <p id = 'fail'></p>
+
+
+</body>
+<script>
+    let list = [[1, 1, 1, 1, 1], [2, 2, 2, 2, 2], [3, 3, 3, 3, 3], [4, 4, 4, 4, 4], [5, 5, 5, 5, 5]];
+    var id = -1
+     
+    function pad(num) {
+        return num.toString().padStart(2, '0')
+    }
+    function timer() {
+        let now = new Date()
+        let time = now.getFullYear().toString() + '/' + pad(now.getMonth() + 1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()) + ':' + now.getMilliseconds().toString().padStart(3, '0')
+        return time
+    }
+    function ip_gen() {
+        return Math.floor(Math.random() * 254 + 1)
+    }
+    var badIP = ip_gen() + '.' + ip_gen() + '.' + ip_gen() + '.' + ip_gen()
+    function event_gen() {
+
+        let action = ''
+        let dice = Math.floor(Math.random() * 10)
+        let status = 'Success'
+        if (dice < 2) {
+            action = 'Login'
+            let d2 = Math.floor(Math.random() * 10)
+            if (d2 < 5) {
+                status = 'Failure'
+            }
+        }
+        else if (dice < 5) {
+            action = 'Modify Data'
+        }
+        else {
+            action = 'Access Data'
+        }
+        return [action, status]
+    }
+
+    function gen() {
+        let time = timer()
+        let dice = Math.floor(Math.random() * 10)
+        let ip = ip_gen() + '.' + ip_gen() + '.' + ip_gen() + '.' + ip_gen()
+        let action = ''
+        let status = ''
+        if (dice < 8) {
+            ip = badIP.padEnd(16)
+            action = "Login"
+            status = "failure"
+        } else {
+            let set = event_gen()
+            action = set[0]
+            status = set[1]
+
+        }
+        id++
+        return [id, ip, time, action, status]
+
+
+
+
+    }
+    function pusher() {
+        var latest = gen()
+        list.shift()
+        list.push(latest)
+        for (i in list) {
+            let log = list[i]
+            let row = document.getElementById(i.toString()).children
+            for (j in row) {
+                row[j].innerHTML = log[j]
+            }
+
+        }
+
+    }
+    function verify() {
+        var ip = document.getElementById('IP').value
+        if(ip == badIP){
+            window.location.replace("Defense_L3.html")
+        }else{
+            document.getElementById('fail').innerHTML='Wrong IP!'
+        }
+    }
+    pusher()
+    pusher()
+    pusher()
+    pusher()
+    pusher()
+    setInterval(pusher, 400)
+
+</script>
+
+</html>

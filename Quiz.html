@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    label {
+        display: block
+    }
+    div{
+        display: inline-block
+    }
+    #fail{
+        display:inline-block
+    }
+</style>
+
+<body>
+    <div>
+        <Label>Qn 1</Label>
+        <label><input type="radio" name='q1' class='ans1'> A</label>
+        <label><input type="radio" name='q1'> B</label>
+        <label><input type="radio" name='q1'> C</label>
+        <label><input type="radio" name='q1'> D</label>
+
+        <br>
+        <Label>Qn 2</Label>
+        <label><input type="radio" name='q2' class='ans2'> A</label>
+        <label><input type="radio" name='q2'> B</label>
+        <label><input type="radio" name='q2'> C</label>
+        <label><input type="radio" name='q2'> D</label>
+        <br>
+        <Label>Qn 3</Label>
+        <label><input type="radio" name='q3' class='ans3'> A</label>
+        <label><input type="radio" name='q3'> B</label>
+        <label><input type="radio" name='q3'> C</label>
+        <label><input type="radio" name='q3'> D</label>
+        <br>
+        <Label>Qn 4</Label>
+        <label><input type="radio" name='q4' class='ans4'> A</label>
+        <label><input type="radio" name='q4'> B</label>
+        <label><input type="radio" name='q4'> C</label>
+        <label><input type="radio" name='q4'> D</label>
+        <br>
+        <Label>Qn 5</Label>
+        <label><input type="radio" name='q5' class='ans5'> A</label>
+        <label><input type="radio" name='q5'> B</label>
+        <label><input type="radio" name='q5'> C</label>
+        <label><input type="radio" name='q5'> D</label>
+        <br>
+        <input type="button" value="Submit" onclick="verify()">
+    </div>
+
+    <p id='fail'></p>
+
+
+
+</body>
+<script>
+    let key = [1, 2, 3, 4, 5]
+    let score = 0
+    function verify() {
+        for (i of key) {
+            if (document.querySelector('.ans' + i).checked) {
+                score += 1
+            }
+
+        }
+        if (score == 5) {
+            window.location.replace('feedback.html')
+        } else {
+            document.getElementById('fail').innerHTML = 'Sorry, not every question was answered correctly, please try again.'
+        }
+    }
+
+
+</script>
+
+</html>

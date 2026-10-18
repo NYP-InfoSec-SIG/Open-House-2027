@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function verify() {
+        
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        console.log(username == "administrator"  && password == "nYp0H27")
+        if ((username == "administrator") && (password == "nYp0H27")) {
+            window.location.replace("Attack_Hidden.html");
+        }
+        else {
+            document.getElementById('fail').innerHTML = "Wrong Username or Password, please try again";
+        }
+    }
+</script>
+
+<body>
+    <p>Weak JS Scenario Placeholder</p>
+    <!-- Start of fake website --> <!-- STILL MOCKUP -->
+
+
+    <h1>Login</h1>
+
+
+
+    <div class="form-group">
+        <label for='username'>Username:</label>
+        <input type="text" style='display:inline-block; ;' id='username'>
+    </div>
+
+    <div class="form-group">
+
+        <label for='password'>Password:
+            <pre style='display:inline-block'></pre>
+        </label>
+        <input type="text" style='display:inline-block; ;' id='password'>
+
+
+    </div>
+
+
+    <input type="button" value="Submit" onclick="verify()">
+
+
+
+    <p id='fail'></p>
+    <!-- end of fake website -->
+
+    <p>Helper/instructions placeholder</p>
+</body>
+
+</html>
