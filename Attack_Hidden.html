@@ -4,23 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <style>
+    h1>ul>li {
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: 33px;
+    justify-content: center;
+}& a{
+    color: white;
+}
+body{
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    /* background-image: url("Webb\'s_First_Deep_Field.jpg"); */
+    background-color: black;
+    color: white;
+    margin-left: 10px;
+    
+}
+h1 > ul{
+    text-align: center;
+    color: #f8f9fa;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 100;
+}
     body{
         text-align: center;
     }
-    img{
-        width:500px
-    }
+    /* img{
+        width:500px 
+    }*/
+        
+        body>ul {
+            list-style: none;
+            margin-bottom: 50px;
+
+            &>li {
+                display: inline-block;
+                margin-right: 40px;
+            }
+        }
+
+
+        img {
+            width: 50px;
+
+        }
+
+        .giant {
+            width: 100px;
+            margin-right: 0;
+        }
+
+        #sun {
+            width: 250px;
+            margin-bottom: -10px;
+            margin-right: -30px;
+            margin-left:-50px;
+            max-width: 250px;
+        }
+
+        #Saturn {
+            width: 140px;
+            margin-bottom: -50px;
+            margin-right: -30px;
+            margin-left: -10px;
+        }
+
+        #Neptune {
+            margin-right: -40px;
+            width: 175px;
+            margin-left: -40px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        li>p {
+            display: none;
+            position: fixed;
+            border-collapse: collapse;
+            text-align: left;
+            width: 150px;
+            background-color: black;
+
+
+        }
+
+        #Name {
+            font-size: 2em;
+        }
+
+        #fact {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            font-size: 1em;
+        }
+        .system{
+            margin-left:10%;
+            margin-right:10%
+        }
+        #helper{
+            background-color: darkred;
+            color: black;
+            border-radius: 10px;
+            border-width: 3px;
+            border-style: dashed;
+            border-color: red;
+            font-size: 100%;
+        }
+        #funny{
+            background-color: red;
+            color: black;
+            
+            border-radius: 10px;
+            font-size: 100%;
+        }
 </style>
+<script>
+        function changepage(){
+            document.getElementById('funny').innerHTML = "I know the solar system is very interesting, but we are on a time limit here."
+        }
+        let timer = 1
+        function showfact(x) {
+            document.getElementById('Name').innerHTML = x
+            document.getElementById('fact').innerHTML = document.getElementById(x).nextElementSibling.innerHTML
+            planets = document.getElementsByClassName('planet')
+            for (i = 0; i < planets.length; i++) {
+                planets[i].style.opacity = 0.5
+            }
+            document.getElementById(x).style.opacity = 1
+            timer = setTimeout(changepage, 5000)
+
+        }
+        function hidefact(x) {
+            document.getElementById('fact').innerHTML = '<br><br><br>'
+            document.getElementById('Name').innerHTML = '<br>'
+            planets = document.getElementsByClassName('planet')
+            for (i = 0; i < planets.length; i++) {
+                planets[i].style.opacity = 1
+            }
+            clearTimeout(timer)
+
+        }
+    </script>
 <body>
-    <p>Scenario Placeholder</p>
+    <p id="funny"> </p>
+    <p id="helper">Ok, now that we are in here, I've noticed that the links at the top of the page are broken. They must have hidden the link to the flag.<br> Luckily, I scanned their website before hand, so I know the links to all their webpages. Unfortunately, they planned for that startegy and added some bait options, so you will have to try them manually. I added them at the bottom of the page. Just replace 'Attack_Hidden.html' in the url bar with one option at a time</p>
     <!-- Start of fake website --> <!-- STILL MOCKUP -->
-    <img src="The_Bird.jpg" alt="">
-    <p>PRAISE THE BIRD</p>
+     <h1>
+        <ul id = 'nav'>
+            <li><a href="Attacker_Distracted.html">HomePage</a></li>
+            <li><a href="Attacker_Distracted.html">About Us</a></li>
+            <li><a href="Attacker_Distracted.html">Past and Upcoming Events</a></li>
+            <li><a href="Attacker_Distracted.html">Join Us!</a></li>
+        </ul>
+    </h1>
+    <br>
+    <p style="font-size: 4em;font-weight: bold;">Come learn about the solar system!</p>
+    <p id='Name'><br></p>
+    <p id='fact'><br><br><br></p>
+    <ul class = 'ml-auto mr-auto'>
+        <li><a class='planet' id='Sun' onmouseover="showfact('Sun')" onmouseout="hidefact('Sun')"
+                href='https://www.youtube.com/watch?v=KQetemT1sWc'><img id='sun'
+                    src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001435/GSFC_20171208_Archive_e001435~large.jpg?w=1920&h=1920&fit=clip&crop=faces%2Cfocalpoint"></a>
+            <p>Stars, like the sun, produce energy through a process called nuclear fusion, where ligher elements like
+                hydrogen and helium have their nuclei fused to form heavier elements like oxygen and carbon</p>
+        </li>
+        <li><a class='planet' id='Mercury' onmouseover="showfact('Mercury')" onmouseout="hidefact('Mercury')"
+                href='events.html'><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/500px-Mercury_in_true_color.jpg"></a>
+            <p>Mercury is the smallest planet in the Solar System, and is even smaller than some moons like Ganymede
+                (Jupiter's moon) and Titan (Saturn's moon)<br><br></p>
+        </li>
+        <li><a class='planet' id='Venus' onmouseover="showfact('Venus')" onmouseout="hidefact('Venus')" href='form.html'><img
+                    src="https://assets.science.nasa.gov/dynamicimage/assets/science/cds/general/images/2024/03/venus-mariner-10-pia23791-fig2.jpg?w=1096&h=1096&fit=crop&crop=faces%2Cfocalpoint"></a>
+            <p>Although Venus and Earth have roughly the same mass, Venus has a much thicker atmosphere made up of
+                carbon dioxide instead of Nitrogen<br><br></p>
+        </li>
+        <li><a class='planet' id='Earth' onmouseover="showfact('Earth')" onmouseout="hidefact('Earth')" href="homepage.html"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/500px-The_Earth_seen_from_Apollo_17.jpg"></a>
+            <p>Earth is the only planet not given names from Roman or Greek mythology, instead getting its name from Old
+                English<br><br></p>
+        </li>
+        <li><a class='planet' id='Mars' onmouseover="showfact('Mars')" onmouseout="hidefact('Mars')"
+                href="AboutUs.html"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png/500px-Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png"></a>
+            <p>Many ancient cultures associated Mars with their own version of the god of war, including the Romans and
+                the Greeks<br><br></p>
+        </li>
+        <li><img class='planet giant' id='Jupiter' onmouseover="showfact('Jupiter')" onmouseout="hidefact('Jupiter')"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Jupiter_OPAL_2024.png/500px-Jupiter_OPAL_2024.png">
+            <p>Jupiter loses more heat from radiation than it receives from the sun, causing it to slowly cool down and
+                shrink at around 1mm per year.<br><br></p>
+        </li>
+        <li><img class='planet' id='Saturn' onmouseover="showfact('Saturn')" onmouseout="hidefact('Saturn')"
+                class='giant' src="https://cdn.mos.cms.futurecdn.net/TWpr5dTCno77m2J2aFgLxD-1200-80.jpg">
+            <p>Saturn is the only planet with rings... Except that every other gas giant has rings. Saturn's rings are
+                just much more visible compared to theirs<br><br></p>
+        </li>
+        <li><img class='planet giant' id='Uranus' onmouseover="showfact('Uranus')" onmouseout="hidefact('Uranus')"
+                class='giant'
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Uranus_Voyager2_color_calibrated.png/500px-Uranus_Voyager2_color_calibrated.png">
+            <p>Uranus is one of only two planet whose name does not come from Roman mythology. Instead, It is named
+                after the Greek Titan of the sky: Uranus, sometimes spelt Ouranos<br></p>
+        </li>
+        <li><img class='planet' id='Neptune' onmouseover="showfact('Neptune')" onmouseout="hidefact('Neptune')"
+                class='giant'
+                src="https://science.nasa.gov/wp-content/uploads/2024/03/pia01492-neptune-full-disk-16x9-1.jpg">
+            <p>Neptune is actually a lot paler in real life. This picture of Neptune has its colour exaggerated to show
+                its clouds, winds and bands better<br><br></p>
+        </li>
+
+
+    </ul>
+    
 
     <!-- end of fake website -->
 
-    <p>Helping options placeholder (For now, go to secret.html)</p>
+    <p>Hidden.html, secrets.html, admin.html, private.html, passwords.html, secret.html, flag.html, </p>
 </body>
 </html>

@@ -6,12 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    h1>ul>li {
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: 33px;
+    justify-content: center;
+}& a{
+    color: white;
+}
+body{
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    /* background-image: url("Webb\'s_First_Deep_Field.jpg"); */
+    background-color: black;
+    color: white;
+    margin-left: 10px;
+    
+}
+h1 > ul{
+    text-align: center;
+    color: #f8f9fa;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+    h1 {
+        text-align: center;
+    }
+
+    .form-container {
+        background-color: #1c1c1c;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 40px;
+        /* display:flex; */
+        align-self: center;
+        justify-items: center;
+    }& > *{
+        justify-self: center;
+    }
+</style>
 <script>
     function verify() {
-        
+
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
-        console.log(username == "administrator"  && password == "nYp0H27")
+        console.log(username == "administrator" && password == "nYp0H27")
         if ((username == "administrator") && (password == "nYp0H27")) {
             window.location.replace("Attack_Hidden.html");
         }
@@ -29,7 +70,7 @@
     <h1>Login</h1>
 
 
-
+<div class="form-container">
     <div class="form-group">
         <label for='username'>Username:</label>
         <input type="text" style='display:inline-block; ;' id='username'>
@@ -47,6 +88,8 @@
 
 
     <input type="button" value="Submit" onclick="verify()">
+</div>
+    
 
 
 
