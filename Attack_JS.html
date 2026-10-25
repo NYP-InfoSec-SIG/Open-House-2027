@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Opponent Website</title>
 </head>
 <style>
     h1>ul>li {
@@ -18,8 +18,10 @@
 body{
     font-family: Arial, sans-serif;
     font-size: 17px;
-    /* background-image: url("Webb\'s_First_Deep_Field.jpg"); */
+    background-image: url("Space.jpeg"); /* src: sripfoto/ Adobe*/
     background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
     margin-left: 10px;
     
@@ -36,16 +38,39 @@ h1 > ul{
     }
 
     .form-container {
-        background-color: #1c1c1c;
+        background-color: #000000;
         padding: 30px;
         border-radius: 10px;
         margin-top: 40px;
         /* display:flex; */
-        align-self: center;
-        justify-items: center;
-    }& > *{
         justify-self: center;
+        justify-items: right;
+        max-width:300px;
+        & > *  {
+        justify-self: center;
+        width:200px;
+        &>input{
+            width:192px;
+            height:19px
+        }
     }
+        & > * > input[type='button']{
+            width:200px;
+            align-self:end
+        }
+        
+    }
+    
+    #helper{
+            background-color: darkred;
+            color: black;
+            border-radius: 10px;
+            border-width: 3px;
+            border-style: dashed;
+            border-color: red;
+            font-size: 100%;
+            text-align: center;
+        }
 </style>
 <script>
     function verify() {
@@ -60,34 +85,41 @@ h1 > ul{
             document.getElementById('fail').innerHTML = "Wrong Username or Password, please try again";
         }
     }
+    setInterval(() => { document.getElementById('hint').innerHTML='Are you still stuck? You can use F12 or Ctrl+U on Chrome to view the sourcecode of the website'
+        
+    }, 30000);
+    
 </script>
 
 <body>
-    <p>Weak JS Scenario Placeholder</p>
+    <p id="helper">OK, this is our target. It looks like a regualr website for astronomy enthusiasts, but there's a flag we are looking for hidden inside.<br>We are going to have to find a way in. Maybe there's a way to inspect the source code of this page?</p>
     <!-- Start of fake website --> <!-- STILL MOCKUP -->
 
 
-    <h1>Login</h1>
+    <h1>Starry Skies<br>Login</h1>
 
 
 <div class="form-container">
     <div class="form-group">
-        <label for='username'>Username:</label>
-        <input type="text" style='display:inline-block; ;' id='username'>
+        <label for='username' style="display: block;">Username:</label>
+        <input type="text" style='display:inline-block;' id='username'>
     </div>
 
     <div class="form-group">
 
-        <label for='password'>Password:
+        <label for='password' style="display: block;">Password:
             <pre style='display:inline-block'></pre>
         </label>
-        <input type="text" style='display:inline-block; ;' id='password'>
+        <input type="text" style='display:inline-block;' id='password'>
 
 
     </div>
 
-
-    <input type="button" value="Submit" onclick="verify()">
+    <div class="form-group">
+            <pre style='display:inline-block'></pre>
+        <input type="button" value="Log In" onclick="verify()" >
+    </div>
+    
 </div>
     
 
@@ -96,7 +128,7 @@ h1 > ul{
     <p id='fail'></p>
     <!-- end of fake website -->
 
-    <p>Helper/instructions placeholder</p>
+    <p id="hint" style="text-align: center;"></p>
 </body>
 
 </html>
