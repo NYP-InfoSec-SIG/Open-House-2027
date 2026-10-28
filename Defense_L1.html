@@ -25,12 +25,13 @@
     form {
         display: inline-block
     }
+    
 </style>
 
 
 <body>
-    <p>
-        DEFENSE SCENARIO PLACEHOLDER
+    <p id="helper">
+        We made it so that our defenses can be operated by one man. <br> This tool shows the IP of everyone connecting to our server and their actions. It should help you detect suspicious activity.
     </p>
 
     <table>
@@ -81,15 +82,17 @@
 
     </table>
     
-    <p>
-        Helping paragraph
-    </p>
+    
 
     <label for="IP">Which IP address looks suspicious?</label>
     <br>
     <input type="text" style='display:block; margin:auto;' id="IP">
     <br>
     <input type="button" value="Submit" onclick="verify()">
+    <p id="hint">
+        
+    </p>
+    <p id="hint2"></p>
     <p id = 'fail'></p>
 
 
@@ -182,6 +185,13 @@
     pusher()
     pusher()
     setInterval(pusher, 400)
+    setTimeout(() => { document.getElementById('hint').innerHTML='Look for an IP doing something weird, or facing weird issues'
+        
+    }, 20000);
+    setTimeout(() => { document.getElementById('hint2').innerHTML="Only 1 IP keeps trying to log in, and he's spamming our servers"
+        
+    }, 40000);
+
 
 </script>
 

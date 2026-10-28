@@ -28,7 +28,7 @@
 
 <body>
     <p>
-        DEFENSE L3 THREATHUNTING PLACEHOLDER
+        Our servers are running too slow, I think our opponents managed to plant something before we banned them.<br>This tool will show you how much resources each application is using, use it to find the malware
     </p>
 
     <table id='process'>
@@ -79,7 +79,7 @@
 
 
     </table>
-    <p>helping paragraph</p>
+    <p id="hint"></p>
     <label for="Process">Which Process looks suspicious?</label>
     <br>
     <input type="text" style='display:block; margin:auto;' id = 'badprocess'>
@@ -175,6 +175,9 @@
     }
 
     setInterval(changer, 1000)
+    setTimeout(() => {
+        document.getElementById('hint').innerHTML = 'Theres one process using a lot more resources than the others. Which is very weird'
+    }, 20000);
 </script>
 
 </html>
