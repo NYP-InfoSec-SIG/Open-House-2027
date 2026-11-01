@@ -4,103 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // Intrusion Detection</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Defense_L1.css">
     <script src="L1.js" defer></script>
 </head>
-<style>
-    body {
-        text-align: center;
-    }
-
-    table {
-        display: inline-block;
-        align-self: Left;
-        border-style: solid;
-
-    }
-
-    th {
-        min-width: 100px
-    }
-
-    form {
-        display: inline-block
-    }
-    
-</style>
-
 
 <body>
-    <p id="helper">
-        We made it so that our defenses can be operated by one man. <br> This tool shows the IP of everyone connecting to our server and their actions. It should help you detect suspicious activity.
-    </p>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ BLUE TEAM // IDS LIVE FEED ]<span class="cursor"></span></span>
+            <span class="led" id="led"><span class="dot"></span><span id="ledText">UNDER ATTACK</span></span>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th style="min-width: 50px;">ID</th>
-                <th style="min-width: 150px;">Source</th>
-                <th>Timestamp</th>
-                <th>Action</th>
-                <th>Status</th>
+        <p id="helper">
+            We made it so that our defenses can be operated by one man. <br> This tool shows the IP of everyone
+            connecting to our server and their actions. It should help you detect suspicious activity.
+        </p>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="num" id="statEvents">0</div>
+                <div class="lbl">Total Events</div>
+            </div>
+            <div class="stat danger">
+                <div class="num" id="statFails">0</div>
+                <div class="lbl">Failed Logins</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="statIPs">0</div>
+                <div class="lbl">Unique IPs</div>
+            </div>
+        </div>
+
+        <div class="meter-wrap">
+            <span class="cap">Threat Level</span>
+            <div class="meter">
+                <div id="threatFill"></div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="min-width: 50px;">ID</th>
+                    <th style="min-width: 150px;">Source</th>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tr id="0">
+                <td>1</td>
+                <td>10.1.2.3</td>
+                <td>2026/10/05 17:22:31:056</td>
+                <td>Login</td>
+                <td>Success</td>
             </tr>
-        </thead>
-        <tr id="0">
-            <td>1</td>
-            <td>10.1.2.3</td>
-            <td>2026/10/05 17:22:31:056</td>
-            <td>Login</td>
-            <td>Success</td>
-        </tr>
-        <tr id="1">
-            <td>2</td>
-            <td>127.33.2.12</td>
-            <td>2026/10/05 17:22:31:061</td>
-            <td>Login</td>
-            <td>Failure</td>
-        </tr>
-        <tr id="2">
-            <td>3</td>
-            <td>127.33.2.12</td>
-            <td>2026/10/05 17:22:33:589</td>
-            <td>Login</td>
-            <td>Failure</td>
-        </tr>
-        <tr id="3">
-            <td>4</td>
-            <td>127.33.2.12</td>
-            <td>2026/10/05 17:22:40:609</td>
-            <td>Login</td>
-            <td>Failure</td>
-        </tr>
-        <tr id="4">
-            <td>5</td>
-            <td>127.33.2.12</td>
-            <td>2026/10/05 17:22:42:324</td>
-            <td>Login</td>
-            <td>Success</td>
-        </tr>
+            <tr id="1">
+                <td>2</td>
+                <td>127.33.2.12</td>
+                <td>2026/10/05 17:22:31:061</td>
+                <td>Login</td>
+                <td>Failure</td>
+            </tr>
+            <tr id="2">
+                <td>3</td>
+                <td>127.33.2.12</td>
+                <td>2026/10/05 17:22:33:589</td>
+                <td>Login</td>
+                <td>Failure</td>
+            </tr>
+            <tr id="3">
+                <td>4</td>
+                <td>127.33.2.12</td>
+                <td>2026/10/05 17:22:40:609</td>
+                <td>Login</td>
+                <td>Failure</td>
+            </tr>
+            <tr id="4">
+                <td>5</td>
+                <td>127.33.2.12</td>
+                <td>2026/10/05 17:22:42:324</td>
+                <td>Login</td>
+                <td>Success</td>
+            </tr>
 
-    </table>
-    
-    
+        </table>
 
-    <label for="IP">Which IP address looks suspicious?</label>
-    <br>
-    <input type="text" style='display:block; margin:auto;' id="IP">
-    <br>
-    <input type="button" value="Submit" onclick="verify()">
-    <p id="hint">
-        
-    </p>
-    <p id="hint2"></p>
-    <p id = 'fail'></p>
-
-
+        <label for="IP">Which IP address looks suspicious?</label>
+        <input type="text" style='display:block; margin:auto;' id="IP" placeholder="xxx.xxx.xxx.xxx">
+        <input type="button" value="Block IP" onclick="verify()">
+        <p id="hint"></p>
+        <p id="hint2"></p>
+        <p id='fail'></p>
+    </div>
 </body>
-<script>
-// nope
 
-</script>
+<script src="matrix.js"></script>
+<script src="Defense_L1_ui.js"></script>
 
 </html>

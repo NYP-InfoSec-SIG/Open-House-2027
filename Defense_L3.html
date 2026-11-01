@@ -4,94 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // Resource Monitor</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Defense_L3.css">
     <script src="L3.js" defer></script>
 </head>
-<style>
-    body {
-        text-align: center;
-    }
-
-    table {
-        display: inline-block;
-        border-style: solid;
-    }
-
-    th {
-        min-width: 100px
-    }
-
-    form {
-        display: inline-block;
-        
-    }
-</style>
 
 <body>
-    <p>
-        Our servers are running too slow, I think our opponents managed to plant something before we banned them.<br>This tool will show you how much resources each application is using, use it to find the malware
-    </p>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ BLUE TEAM // EDR RESOURCE MONITOR ]<span class="cursor"></span></span>
+            <span class="led"><span class="dot"></span>SYSTEM OVERLOADED</span>
+        </div>
 
-    <table id='process'>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Process</th>
-                <th>CPU</th>
-                <th>RAM</th>
-                <th>NETWORK</th>
+        <p class="intro">
+            Our servers are running too slow, I think our opponents managed to plant something before we banned
+            them.<br>This tool will show you how much resources each application is using, use it to find the malware.
+        </p>
+
+        <div class="gauges">
+            <div class="gauge">
+                <div class="lbl"><span>CPU</span><span class="val" id="gCpuVal">0%</span></div>
+                <div class="bar"><span id="gCpu"></span></div>
+            </div>
+            <div class="gauge">
+                <div class="lbl"><span>RAM</span><span class="val" id="gRamVal">0%</span></div>
+                <div class="bar"><span id="gRam"></span></div>
+            </div>
+            <div class="gauge">
+                <div class="lbl"><span>NETWORK</span><span class="val" id="gNetVal">0%</span></div>
+                <div class="bar"><span id="gNet"></span></div>
+            </div>
+        </div>
+
+        <table id='process'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Process</th>
+                    <th>CPU</th>
+                    <th>RAM</th>
+                    <th>NETWORK</th>
+                </tr>
+            </thead>
+            <tr id="0">
+                <td>Total Used</td>
+                <td></td>
+                <td>94%</td>
+                <td>97%</td>
+                <td>90%</td>
             </tr>
-        </thead>
-        <tr id="0">
-            <td>Total Used</td>
-            <td></td>
-            <td>94%</td> <!-- based on 100% cpu max-->
-            <td>97%</td> <!-- based on 32 gb ram max-->
-            <td>90%</td> <!-- based on 400mbps max-->
-        </tr>
-        <tr id="1">
-            <td>1</td>
-            <td>scvhost.exe</td>
-            <td>88%</td>
-            <td>28,157.5 MB</td>
-            <td>361.2 Mbps</td>
-        </tr>
-        <tr id="viewer">
-            <td>2</td>
-            <td>ProcessViewer</td>
-            <td>1%</td>
-            <td>100.9 MB</td>
-            <td>0 Mbps</td>
-        </tr>
-        <tr id="chrome">
-            <td>3</td>
-            <td>Chrome</td>
-            <td>3%</td>
-            <td>2,481.4 MB</td>
-            <td>0 Mbps</td>
-        </tr>
-        <tr id="coder">
-            <td>4</td>
-            <td>Visual Studio Code</td>
-            <td>2%</td>
-            <td>302.7 MB</td>
-            <td>0 Mbps</td>
-        </tr>
+            <tr id="1">
+                <td>1</td>
+                <td>scvhost.exe</td>
+                <td>88%</td>
+                <td>28,157.5 MB</td>
+                <td>361.2 Mbps</td>
+            </tr>
+            <tr id="viewer">
+                <td>2</td>
+                <td>ProcessViewer</td>
+                <td>1%</td>
+                <td>100.9 MB</td>
+                <td>0 Mbps</td>
+            </tr>
+            <tr id="chrome">
+                <td>3</td>
+                <td>Chrome</td>
+                <td>3%</td>
+                <td>2,481.4 MB</td>
+                <td>0 Mbps</td>
+            </tr>
+            <tr id="coder">
+                <td>4</td>
+                <td>Visual Studio Code</td>
+                <td>2%</td>
+                <td>302.7 MB</td>
+                <td>0 Mbps</td>
+            </tr>
+        </table>
 
-
-    </table>
-    <p id="hint"></p>
-    <label for="Process">Which Process looks suspicious?</label>
-    <br>
-    <input type="text" style='display:block; margin:auto;' id = 'badprocess'>
-    <br>
-    <input type="button" value="Submit" onclick="verify()">
-    <p id = 'fail'></p>
-
-
+        <p id="hint"></p>
+        <label for="Process">Which Process looks suspicious?</label>
+        <input type="text" style='display:block; margin:auto;' id='badprocess' placeholder="process name">
+        <input type="button" value="Terminate Process" onclick="verify()">
+        <p id='fail'></p>
+    </div>
 </body>
-<script>
-// nice try
-</script>
+
+<script src="matrix.js"></script>
+<script src="Defense_L3_ui.js"></script>
 
 </html>

@@ -1,0 +1,189 @@
+/* ============================================================
+   Defense_L1 — IDS live feed specific styles
+   (loads after defense.css)
+   ============================================================ */
+
+/* Stat counters */
+.stats {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.stat {
+    flex: 1 1 140px;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    background: var(--panel);
+    padding: 10px;
+}
+
+.stat .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--neon);
+    text-shadow: 0 0 8px rgba(0, 255, 156, 0.6);
+}
+
+.stat .lbl {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #6fd8b8;
+    text-transform: uppercase;
+}
+
+.stat.danger .num {
+    color: var(--red);
+    text-shadow: 0 0 8px rgba(255, 75, 92, 0.6);
+}
+
+/* Threat meter */
+.meter-wrap {
+    margin: 14px 0 20px;
+    text-align: left;
+}
+
+.meter-wrap .cap {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--amber);
+    text-transform: uppercase;
+}
+
+.meter {
+    height: 14px;
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    background: #07131b;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+#threatFill {
+    height: 100%;
+    width: 15%;
+    background: linear-gradient(90deg, var(--neon), var(--amber), var(--red));
+    box-shadow: 0 0 12px rgba(255, 75, 92, 0.6);
+    transition: width 0.4s ease;
+}
+
+/* Status coloring applied by JS */
+td.ok {
+    color: var(--neon);
+}
+
+td.bad {
+    color: var(--red);
+    font-weight: 700;
+}
+
+tr.newrow td {
+    animation: slidein 0.5s ease;
+}
+
+@keyframes slidein {
+    from {
+        background: rgba(0, 255, 156, 0.18);
+    }
+
+    to {
+        background: transparent;
+    }
+}
+
+/* ============================================================
+   Fit everything onto a single viewport (no scroll)
+   Overrides the shared spacing from defense.css for this page.
+   ============================================================ */
+
+body {
+    padding-bottom: 0;
+}
+
+.wrap {
+    padding: 0 16px 8px;
+}
+
+/* Tighter header + intro */
+.topbar {
+    margin: 10px 0;
+    padding: 8px 16px;
+}
+
+#helper {
+    margin: 0 0 10px;
+    padding: 8px 14px;
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+/* Tighter stat counters */
+.stats {
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.stat {
+    padding: 7px;
+}
+
+.stat .num {
+    font-size: 22px;
+}
+
+/* Tighter threat meter */
+.meter-wrap {
+    margin: 8px 0 10px;
+}
+
+/* Tighter log table + fixed size so it doesn't resize as IDs/content change */
+table {
+    display: table;
+    width: 640px;
+    max-width: 100%;
+    margin: 2px auto 10px;
+    table-layout: fixed;
+}
+
+th,
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th {
+    padding: 6px 14px;
+}
+
+td {
+    padding: 4px 14px;
+}
+
+/* Fixed column widths (ID / Source / Timestamp / Action / Status) */
+th:nth-child(1), td:nth-child(1) { width: 50px; }
+th:nth-child(2), td:nth-child(2) { width: 150px; }
+th:nth-child(3), td:nth-child(3) { width: 210px; }
+th:nth-child(4), td:nth-child(4) { width: 120px; }
+th:nth-child(5), td:nth-child(5) { width: 110px; }
+
+/* Tighter answer area */
+label {
+    margin: 4px 0;
+}
+
+input[type="button"] {
+    margin-top: 8px;
+}
+
+#hint,
+#hint2 {
+    margin: 4px 0;
+    min-height: 0;
+}
+
+#fail {
+    margin: 4px 0;
+}

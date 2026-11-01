@@ -1,0 +1,168 @@
+/* ============================================================
+   Defense_L3 — EDR resource monitor specific styles
+   (loads after defense.css)
+   ============================================================ */
+
+.wrap {
+    max-width: 920px;
+}
+
+/* System health gauges */
+.gauges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.gauge {
+    flex: 1 1 160px;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    background: var(--panel);
+    padding: 12px;
+    text-align: left;
+}
+
+.gauge .lbl {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6fd8b8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gauge .val {
+    color: var(--amber);
+    font-weight: 700;
+}
+
+.bar {
+    height: 12px;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    background: #07131b;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.bar > span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--neon), var(--amber), var(--red));
+    transition: width 0.6s ease;
+}
+
+/* The malware row runs hot */
+tr.hot td {
+    color: var(--red);
+    text-shadow: 0 0 6px rgba(255, 75, 92, 0.5);
+    animation: hotpulse 1.2s infinite;
+}
+
+@keyframes hotpulse {
+    50% {
+        background: rgba(255, 75, 92, 0.12);
+    }
+}
+
+/* Terminate button is red-themed on this page */
+input[type="button"] {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+input[type="button"]:hover {
+    background: var(--red);
+    color: #0a0002;
+    box-shadow: 0 0 16px rgba(255, 75, 92, 0.6);
+}
+
+/* ============================================================
+   Fit everything onto a single viewport (no scroll) +
+   keep the process table a fixed size as values change.
+   Overrides shared spacing from defense.css for this page.
+   ============================================================ */
+
+body {
+    padding-bottom: 0;
+}
+
+.wrap {
+    padding: 24px 16px 16px;
+}
+
+/* Header + intro with a bit more breathing room */
+.topbar {
+    margin: 16px 0;
+    padding: 12px 16px;
+}
+
+.intro {
+    margin: 0 0 22px;
+    padding: 14px 16px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Gauges */
+.gauges {
+    margin: 22px 0;
+    gap: 14px;
+}
+
+.gauge {
+    padding: 14px;
+}
+
+/* Fixed-size process table so it doesn't resize as values change */
+table {
+    display: table;
+    width: 680px;
+    max-width: 100%;
+    margin: 10px auto 22px;
+    table-layout: fixed;
+}
+
+th,
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th {
+    padding: 11px 14px;
+}
+
+td {
+    padding: 9px 14px;
+}
+
+/* Fixed column widths (ID / Process / CPU / RAM / NETWORK) */
+th:nth-child(1), td:nth-child(1) { width: 110px; }
+th:nth-child(2), td:nth-child(2) { width: 180px; }
+th:nth-child(3), td:nth-child(3) { width: 90px; }
+th:nth-child(4), td:nth-child(4) { width: 150px; }
+th:nth-child(5), td:nth-child(5) { width: 150px; }
+
+/* Answer area */
+#hint {
+    margin: 16px 0;
+    min-height: 0;
+}
+
+label {
+    margin: 10px 0;
+}
+
+input[type="button"] {
+    margin-top: 14px;
+}
+
+#fail {
+    margin: 14px 0;
+}

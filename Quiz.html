@@ -4,62 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // Certification Quiz</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Quiz.css">
     <script src="quiz.js" defer></script>
 </head>
-<style>
-    label {
-        display: block
-    }
-    div{
-        display: inline-block
-    }
-    #fail{
-        display:inline-block
-    }
-</style>
 
 <body>
-    <div>
-        <Label>Qn 1</Label>
-        <label><input type="radio" name='q1' id='ans1'> A</label>
-        <label><input type="radio" name='q1' id='ans2'> B</label>
-        <label><input type="radio" name='q1' id='ans3'> C</label>
-        <label><input type="radio" name='q1' id='ans4'> D</label>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ BLUE TEAM // CERTIFICATION EXAM ]<span class="cursor"></span></span>
+            <span class="led secure"><span class="dot"></span>EXAM IN PROGRESS</span>
+        </div>
 
-        <br>
-        <Label>Qn 2</Label>
-        <label><input type="radio" name='q2' id='ans5'> A</label>
-        <label><input type="radio" name='q2' id='ans6'> B</label>
-        <label><input type="radio" name='q2' id='ans7'> C</label>
-        <label><input type="radio" name='q2' id='ans8'> D</label>
-        <br>
-        <Label>Qn 3</Label>
-        <label><input type="radio" name='q3' id='ans9'> A</label>
-        <label><input type="radio" name='q3' id='ans10'> B</label>
-        <label><input type="radio" name='q3' id='ans11'> C</label>
-        <label><input type="radio" name='q3' id='ans12'> D</label>
-        <br>
-        <Label>Qn 4</Label>
-        <label><input type="radio" name='q4' id='ans13'> A</label>
-        <label><input type="radio" name='q4' id='ans14'> B</label>
-        <label><input type="radio" name='q4' id='ans15'> C</label>
-        <label><input type="radio" name='q4' id='ans16'> D</label>
-        <br>
-        <Label>Qn 5</Label>
-        <label><input type="radio" name='q5' id='ans17'> A</label>
-        <label><input type="radio" name='q5' id='ans18'> B</label>
-        <label><input type="radio" name='q5' id='ans19'> C</label>
-        <label><input type="radio" name='q5' id='ans20'> D</label>
-        <br>
-        <input type="button" value="Submit" onclick="verify()">
+        <p class="intro">
+            Final step, operator. Answer all 5 questions correctly to earn your Blue Team certificate.
+        </p>
+
+        <div class="quiz-card">
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 1</span>A flood of failed logins from a single IP most likely indicates what?</label>
+                <label><input type="radio" name='q1' class='ans1'> A brute-force / password-spraying attack</label>
+                <label><input type="radio" name='q1'> B a scheduled backup job</label>
+                <label><input type="radio" name='q1'> C a DNS cache refresh</label>
+                <label><input type="radio" name='q1'> D a normal software update</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 2</span>A process named "scvhost.exe" eating 88% CPU is suspicious mainly because it is what?</label>
+                <label><input type="radio" name='q2' class='ans2'> A a typo-squat of the real "svchost.exe"</label>
+                <label><input type="radio" name='q2'> B signed by Microsoft</label>
+                <label><input type="radio" name='q2'> C using very little memory</label>
+                <label><input type="radio" name='q2'> D only active at night</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 3</span>What does an IDS (Intrusion Detection System) do?</label>
+                <label><input type="radio" name='q3' class='ans3'> A monitors traffic and alerts on suspicious activity</label>
+                <label><input type="radio" name='q3'> B encrypts all hard drives automatically</label>
+                <label><input type="radio" name='q3'> C speeds up the CPU</label>
+                <label><input type="radio" name='q3'> D compiles source code</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 4</span>Which is the best first response to a confirmed malicious host?</label>
+                <label><input type="radio" name='q4' class='ans4'> A isolate/block it from the network</label>
+                <label><input type="radio" name='q4'> B give it admin rights</label>
+                <label><input type="radio" name='q4'> C reply to the attacker</label>
+                <label><input type="radio" name='q4'> D ignore it until next week</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 5</span>Why does "defense in depth" use multiple layers of security?</label>
+                <label><input type="radio" name='q5' class='ans5'> A so one failed control doesn't expose everything</label>
+                <label><input type="radio" name='q5'> B to make logins slower on purpose</label>
+                <label><input type="radio" name='q5'> C to use more electricity</label>
+                <label><input type="radio" name='q5'> D because one firewall is illegal</label>
+            </div>
+
+            <input type="button" value="Submit Exam" onclick="verify()">
+            <p id='fail'></p>
+        </div>
     </div>
-
-    <p id='fail'></p>
-
-
-
 </body>
 
+<script src="matrix.js"></script>
 
 </html>
