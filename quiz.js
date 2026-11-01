@@ -1,8 +1,8 @@
-    let key = [1, 2, 3, 4, 5]
+    let key = [3, 5, 11, 16, 18]
     function verify() {
         let score = 0
         for (i of key) {
-            if (document.querySelector('.ans' + i).checked) {
+            if (document.querySelector('#ans' + i).checked) {
                 score += 1
             }
 
