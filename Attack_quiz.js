@@ -1,4 +1,4 @@
-    let key = [3, 5, 11, 16, 18]
+    let key = [1, 6, 11, 14, 17]
     function verify() {
         let score = 0
         for (i of key) {
