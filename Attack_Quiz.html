@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Console // Certification Quiz</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Quiz.css">
+    <script src="Defence_quiz.js" defer></script>
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ BLUE TEAM // CERTIFICATION EXAM ]<span class="cursor"></span></span>
+            <span class="led secure"><span class="dot"></span>EXAM IN PROGRESS</span>
+        </div>
+
+        <p class="intro">
+            Final step, operator. Answer all 5 questions correctly to earn your Blue Team certificate.
+        </p>
+
+        <div class="quiz-card">
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 1</span>A flood of failed logins from a single IP most likely indicates what?</label>
+                <label><input type="radio" name='q1' id='ans1'> A Someone forgot their password</label>
+                <label><input type="radio" name='q1' id='ans2'> B a scheduled backup job</label>
+                <label><input type="radio" name='q1' id='ans3'> C brute-force / password-spraying attack</label>
+                <label><input type="radio" name='q1' id='ans4'> D a normal software update</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 2</span>A process named "scvhost.exe" eating 88% CPU is suspicious mainly because it is ...</label>
+                <label><input type="radio" name='q2' id='ans5'> A a typo-squat of the real "svchost.exe"</label>
+                <label><input type="radio" name='q2' id='ans6'> B signed by Microsoft</label>
+                <label><input type="radio" name='q2' id='ans7'> C using very little memory</label>
+                <label><input type="radio" name='q2' id='ans8'> D only active at night, just like batman</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 3</span>What does an IDS (Intrusion Detection System) do?</label>
+                <label><input type="radio" name='q3' id='ans9'> A speeds up the CPU</label>
+                <label><input type="radio" name='q3' id='ans10'> B encrypts all hard drives automatically</label>
+                <label><input type="radio" name='q3' id='ans11'> C monitors traffic and alerts on suspicious activity</label>
+                <label><input type="radio" name='q3' id='ans12'> D compiles source code</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 4</span>Which is the best first response to a confirmed malicious host?</label>
+                <label><input type="radio" name='q4' id='ans13'> A ignore it until next week</label>
+                <label><input type="radio" name='q4' id='ans14'> B give it admin rights as peace offering</label>
+                <label><input type="radio" name='q4' id='ans15'> C hack the attacker back</label>
+                <label><input type="radio" name='q4' id='ans16'> D isolate/block it from the network</label>
+            </div>
+
+            <div class="question">
+                <label class="q-title"><span class="qnum">Qn 5</span>Why does "defense in depth" use multiple layers of security?</label>
+                <label><input type="radio" name='q5' id='ans17'> A to make logins slower on purpose</label>
+                <label><input type="radio" name='q5' id='ans18'> B so one failed control doesn't expose everything</label>
+                <label><input type="radio" name='q5' id='ans19'> C to use more electricity and ram</label>
+                <label><input type="radio" name='q5' id='ans20'> D because one firewall is illegal</label>
+            </div>
+
+            <input type="button" value="Submit Exam" onclick="verify()">
+            <p id='fail'></p>
+        </div>
+    </div>
+</body>
+
+<script src="matrix.js"></script>
+
+</html>
