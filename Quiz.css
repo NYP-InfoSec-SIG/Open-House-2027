@@ -1,0 +1,95 @@
+/* ============================================================
+   Quiz — certification quiz, SOC console theme.
+   (loads after defense.css)
+   ============================================================ */
+
+/* Quiz card wraps the questions */
+.quiz-card {
+    display: inline-block;
+    text-align: left;
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: 0 0 22px rgba(0, 255, 156, 0.12);
+    padding: 20px 26px;
+    max-width: 640px;
+    width: 100%;
+}
+
+/* Each question block */
+.question {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(15, 122, 90, 0.25);
+}
+
+.question:last-of-type {
+    border-bottom: none;
+}
+
+.question > .q-title {
+    display: block;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.question > .q-title .qnum {
+    color: var(--amber);
+    margin-right: 8px;
+}
+
+/* Answer options */
+.question label:not(.q-title) {
+    display: block;
+    color: #c9ffe9;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 14px;
+}
+
+.question label:not(.q-title):hover {
+    border-color: var(--dim);
+    background: rgba(34, 211, 238, 0.06);
+}
+
+.question input[type="radio"] {
+    accent-color: var(--neon);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Submit button */
+input[type="button"] {
+    margin-top: 6px;
+    background: transparent;
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    font-family: inherit;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+input[type="button"]:hover {
+    background: var(--neon);
+    color: #041009;
+    box-shadow: 0 0 16px rgba(0, 255, 156, 0.6);
+}
+
+#fail {
+    display: block;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-height: 20px;
+    margin-top: 16px;
+}

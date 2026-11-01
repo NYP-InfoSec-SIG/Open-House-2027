@@ -4,31 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // System Secured</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Defense_End.css">
 </head>
-<style>
-    div {
-        display: flex;
-        justify-content: center;
-    }
-
-    p {
-        text-align: center;
-        margin: 100px
-    }
-</style>
 
 <body>
-    <p>
-        Congratulations on a successful defense against the red team! Thanks to your efforts, the team has successfully
-        fended the red team off long enough. Thanks for playing!
-    </p>
-    <form action="">
-        <div>
-            <button formaction="Quiz.html">Take Quiz for certificate</button>
-        </div>
-    </form>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="badge">■ SYSTEM SECURED ■</div>
 
+        <div class="console">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div id="log"></div>
+        </div>
+
+        <div class="summary" id="summary">
+            <div class="stat">
+                <div class="num">2</div>
+                <div class="lbl">Threats Neutralized</div>
+            </div>
+            <div class="stat">
+                <div class="num">100%</div>
+                <div class="lbl">Uptime Restored</div>
+            </div>
+            <div class="stat">
+                <div class="num">0</div>
+                <div class="lbl">Active Intrusions</div>
+            </div>
+        </div>
+
+        <p>
+            Congratulations on a successful defense against the red team! Thanks to your efforts, the team has
+            successfully fended the red team off long enough. Thanks for playing!
+        </p>
+
+        <form action="">
+            <button formaction="Quiz.html">Take Quiz for Certificate &gt;</button>
+        </form>
+    </div>
 </body>
+
+<script src="matrix.js"></script>
+<script src="Defense_End_ui.js"></script>
 
 </html>
