@@ -6,7 +6,9 @@
     <title>Document</title>
     <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js">
         const peer = new Peer('NYPOH2027')
+        console.log(peer.id)
         peer.on('connection',function(connection){
+            console.log('step1')
             connection.on('open',function(){
                 peerjsConnection.on('data', function(data) {
 				document.write('Received', data)
