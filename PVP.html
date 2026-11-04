@@ -19,6 +19,7 @@
         console.log(peer.id)
         peer.on('connection',function(connection){
             console.log('step1')
+            peer.on('error', function(err) { console.log(err) });
             connection.on('open',function(){
                 peerjsConnection.on('data', function(data) {
 				document.write('Received', data)
