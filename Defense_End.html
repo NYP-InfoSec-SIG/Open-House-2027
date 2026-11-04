@@ -20,8 +20,10 @@
     var peer = new Peer()
 
     function connection(peerid = 'NYPOH27'){
+        console.log('step1')
         var conn = peer.connect(peerid)
         conn.on('open',function (){
+            console.log('step2')
             conn.send('ping')
         })
     }
