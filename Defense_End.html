@@ -25,6 +25,7 @@
 	function connect(peerID){
 		var conn = peer.connect(peerID);
         console.log(conn)
+        peer.on('error', function(err) { console.log(err) });
 		conn.on('open', function() {
 			// Receive messages
 			conn.on('data', function(data) {
