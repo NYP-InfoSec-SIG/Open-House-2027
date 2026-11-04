@@ -24,6 +24,7 @@
 	peerID = 'NYPOH27'
 	function connect(peerID){
 		var conn = peer.connect(peerID);
+        console.log(conn)
 		conn.on('open', function() {
 			// Receive messages
 			conn.on('data', function(data) {
