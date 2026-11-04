@@ -14,17 +14,33 @@
     
 </body>
 <script>
-    console.log('started')
-        const peer = new Peer('NYPOH2027')
-        console.log(peer.id)
-        peer.on('connection',function(connection){
-            console.log('step1')
-            peer.on('error', function(err) { console.log(err) });
-            connection.on('open',function(){
-                peerjsConnection.on('data', function(data) {
-				document.write('Received', data)
-			})
-            })
-        })
+    // console.log('started')
+    //     const peer = new Peer('NYPOH2027')
+    //     console.log(peer.id)
+    //     peer.on('connection',function(connection){
+    //         console.log('step1')
+    //         peer.on('error', function(err) { console.log(err) });
+    //         connection.on('open',function(){
+    //             peerjsConnection.on('data', function(data) {
+	// 			document.write('Received', data)
+	// 		})
+    //         })
+    //     })
+    var peerjsPeer = new Peer({key: 'xxxYOURKEYGOESHERExxxx'});
+	peerjsPeer.on('open', function() {
+		console.log('My peerjsPeer ID is: ', peerjsPeer.id);
+	});
+
+	peerjsPeer.on('connection', function(peerjsConnection) {
+		peerjsConnection.on('open', function() {
+			// Receive messages
+			peerjsConnection.on('data', function(data) {
+				console.log('Received', data);
+			});
+			
+			// Send messages
+			peerjsConnection.send('Hello from markers-page!');
+		});
+	});
 </script>
 </html>

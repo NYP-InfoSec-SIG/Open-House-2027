@@ -17,21 +17,23 @@
 <body>
     <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js" ></script>
     <script type = "text/javascript" defer>
-    var peer = new Peer()
-
-    function connection(peerid = 'NYPOH27'){
-        console.log('step1')
-        var conn = peer.connect(peerid)
-        peer.on('error', function(err) { console.log(err) });
-        conn.on('open',function (){
-            console.log('step2')
-            conn.send('ping')
-        })
-    }
-    function verify(){
-        console.log("ping")
-    }
-    connection()
+    var peer = new Peer('NYPOH27');
+	peer.on('open', function(id) {
+		console.log('My peer ID is: ' + id);
+	});
+	
+	function connect(peerID){
+		var conn = peer.connect(peerID);
+		conn.on('open', function() {
+			// Receive messages
+			conn.on('data', function(data) {
+				console.log('Received', data);
+			});
+			
+			// Send messages
+			conn.send('Hello from phone!');
+		});		
+	}
 </script>
     <canvas id="matrix"></canvas>
     <div class="wrap">
