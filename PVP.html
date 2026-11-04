@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js">
+        
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+<script>
+    console.log('started')
         const peer = new Peer('NYPOH2027')
         console.log(peer.id)
         peer.on('connection',function(connection){
@@ -15,11 +25,5 @@
 			})
             })
         })
-    </script>
-
-    
-</head>
-<body>
-    
-</body>
+</script>
 </html>
