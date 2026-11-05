@@ -11,32 +11,25 @@
     <link rel="stylesheet" href="defense.css">
     <link rel="stylesheet" href="Defense_End.css">
     
-<script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- Google API Client Library -->
+<script src="https://apis.google.com/js/api.js" async defer></script>
 </head>
 
 <body>
-    <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js" ></script>
+    
     <script type = "text/javascript" defer>
-    var peer = new Peer();
-	peer.on('open', function(id) {
-		console.log('My peer ID is: ' + id);
-	});
-	peerID = 'NYPOH27'
-	function connect(peerID){
-		var conn = peer.connect('NYPOH27');
-        console.log(conn)
-        peer.on('error', function(err) { console.log(err) });
-		conn.on('open', function() {
-			// Receive messages
-			conn.on('data', function(data) {
-				console.log('Received', data);
-			});
-			
-			// Send messages
-			conn.send('Hello from phone!');
-		});		
-	}
-    connect()
+    
+    var CLIENT_ID = '88143635034-db1f045a6oahgdqt8pb461duf2qj1j0b.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyD6Cq-Gepm_vIyojNx4GEP6M23wibEKscs';
+    var DOC_ID = '1OBGc8rC_wMTxxEwZgEiCX5VKWErl05tNvuZ9d9cxKlM'
+    var DISCOVERY_DOCS = ['https://docs.googleapis.com/$discovery/rest?version=v1']
+    var SCOPES = 'https://www.googleapis.com/auth/documents'
+    gapi.client.init({apiKey:API_KEY,clientId:CLIENT_ID , discoveryDocs:DISCOVERY_DOCS,}).then()
+    docs = gapi.client.docs.documents.get({documentId: DOC_ID})
+
+    array = JSON.parse(docs)
+    console.log(array)
 </script>
     <canvas id="matrix"></canvas>
     <div class="wrap">
