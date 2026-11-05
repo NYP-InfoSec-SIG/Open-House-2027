@@ -29,6 +29,7 @@ async function init() {
   await gapi.client.init({
     discoveryDocs: DISCOVERY_DOCS
   });
+  gapi.client.docs.documents.get({documentId: DOC_ID}).then(function (response){console.log(response.result)})
   
 }
     
