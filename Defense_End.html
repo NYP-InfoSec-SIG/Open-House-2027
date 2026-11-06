@@ -15,27 +15,23 @@
 </head>
 
 <body>
-    <script src="https://apis.google.com/js/api.js"></script>
-  <script>
-    // 1. Load the JavaScript client library.
-    var CLIENT_ID = '88143635034-db1f045a6oahgdqt8pb461duf2qj1j0b.apps.googleusercontent.com';
-    var API_KEY = 'AIzaSyD6Cq-Gepm_vIyojNx4GEP6M23wibEKscs';
-    var DOC_ID = '1OBGc8rC_wMTxxEwZgEiCX5VKWErl05tNvuZ9d9cxKlM'
-    var DISCOVERY_DOCS = ['https://docs.googleapis.com/$discovery/rest?version=v1']
-    var SCOPES = 'https://www.googleapis.com/auth/documents'
-gapi.load('client', init);
-async function init() {
-  // 2. Initialize the JavaScript client library.
-  await gapi.client.init({
-    discoveryDocs: DISCOVERY_DOCS,
-    // clientId:CLIENT_ID,
-    scope:SCOPES
-  });
-  gapi.client.docs.documents.get({documentId: DOC_ID}).then(function (response){console.log(response.result)})
-  
-}
     
     
+<script src="https://cdn.jsdelivr.net/npm/webconnect/dist/umd/webconnect.js"></script>
+
+<script type="module">
+	import webconnect from 'https://cdn.jsdelivr.net/npm/webconnect/dist/esm/webconnect.js'
+</script>
+<script>
+    var appName = 'OH2027'
+    channelName = 'OH2027PVP'
+    connectPassword = 'WhyD1diS@yy3s2r+c'
+    const options = {appName,channelName,connectPassword}
+    const connection = webconnect(options)
+    connection.onConnect(async(attribute)=>{
+        console.log(attribute)
+        connection.Send('hello',attribute)
+    })
 </script>
     <canvas id="matrix"></canvas>
     <div class="wrap">
