@@ -30,8 +30,15 @@
     const connection = webconnect(options)
     connection.onConnect(async(attribute)=>{
         console.log(attribute)
-        connection.Send('hello',attribute)
+        connection.Send('def',attribute)
+        connection.onReceive((data,attribute)=> {flag = data
+            console.log(data)
+        })
+        if(flag = 'hit'){
+            connection.Disconnect()
+        }
     })
+    
 </script>
     <canvas id="matrix"></canvas>
     <div class="wrap">
