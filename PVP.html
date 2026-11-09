@@ -25,6 +25,8 @@
     var channelName = 'OH2027PVP'
     var connectPassword = 'WhyD1diS@yy3s2r+c'
     var list = []
+    var def = 0
+    var atk = 0
     const options = { appName, channelName, connectPassword }
     const connection = webconnect(options)
     connection.onConnect(async (attribute) => {
@@ -33,15 +35,18 @@
             connector = attribute.connectId
             connection.Send('hit', attribute)
             if (!list.includes(connector)) {
-                console.log(data)
+                if(data=='def'){
+                    def += 1
+                }else if(data=='atk'){
+                    atk += 1
+                }
+                document.write('def =', def,'<br>','atk =',atk)
                 connector = attribute.connectId
                 list.push(connector)
                 setTimeout(function () {
                     list.shift()
                 }, 10000)
                 log = data
-            } else {
-                console.log('alr received', attribute)
             }
         })
 
