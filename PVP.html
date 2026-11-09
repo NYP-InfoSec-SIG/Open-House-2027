@@ -31,7 +31,7 @@
         console.log(attribute.connectId)
         connector = attribute.connectId
         if (!(connector in list)) {
-            console.log(!(connector in list), list)
+            console.log((connector in list), list)
             list.push(connector)
             setTimeout(function(){
                 list.shift()
