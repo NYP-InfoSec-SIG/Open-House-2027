@@ -39,7 +39,7 @@
             connection.onReceive((data, attribute) => {
                 connector = attribute.connectId
                 connection.Send('hit', attribute)
-                if (!(list.includes(connector))) {
+                if (!list.includes(connector)) {
                     console.log(data)
                     log = data
                 }else {
