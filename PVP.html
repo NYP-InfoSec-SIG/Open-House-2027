@@ -38,10 +38,10 @@
             if (!list.includes(connector)) {
                 if(data=='def'){
                     def += 1
-                    document.getElementById('def').innerHTML=def
+                    document.getElementById('def').innerHTML='def:' + def
                 }else if(data=='atk'){
                     atk += 1
-                    document.getElementById('atk').innerHTML=atk
+                    document.getElementById('atk').innerHTML='atk:' + def
                 }
                 connector = attribute.connectId
                 list.push(connector)
