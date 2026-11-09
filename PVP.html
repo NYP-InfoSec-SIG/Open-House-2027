@@ -29,24 +29,22 @@
     const connection = webconnect(options)
     connection.onConnect(async (attribute) => {
         console.log(attribute.connectId)
-        connector = attribute.connectId
-
-        
-            list.push(connector)
-            setTimeout(function () {
-                list.shift()
-            }, 10000)
-            connection.onReceive((data, attribute) => {
+        connection.onReceive((data, attribute) => {
+            connector = attribute.connectId
+            connection.Send('hit', attribute)
+            if (!list.includes(connector)) {
+                console.log(data)
                 connector = attribute.connectId
-                connection.Send('hit', attribute)
-                if (!list.includes(connector)) {
-                    console.log(data)
-                    log = data
-                }else {
-            console.log('alr received', attribute)
+                list.push(connector)
+                setTimeout(function () {
+                    list.shift()
+                }, 10000)
+                log = data
+            } else {
+                console.log('alr received', attribute)
             }
-        }) 
-        
+        })
+
 
     })
 </script>
