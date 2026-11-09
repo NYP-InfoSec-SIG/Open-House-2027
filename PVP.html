@@ -30,8 +30,7 @@
     connection.onConnect(async (attribute) => {
         console.log(attribute.connectId)
         connector = attribute.connectId
-        if (!(connector in list)) {
-            console.log((connector in list), list)
+        if (!(list.includes(connector))) {
             list.push(connector)
             setTimeout(function(){
                 list.shift()
