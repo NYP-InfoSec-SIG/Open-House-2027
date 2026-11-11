@@ -4,17 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // Feedback</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="feedback.css">
 </head>
 
 <body>
-    <a href="">Please complete the feedback form to receive your certificate</a>
-    <br>
-    <br>
-    <form>
-        <button formaction="index.html">Restart</button>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ MISSION COMPLETE // FEEDBACK ]<span class="cursor"></span></span>
+            <span class="led secure"><span class="dot"></span>EXAM PASSED</span>
+        </div>
 
-    </form>
+        <div class="card">
+            <div class="badge">■ EXAM PASSED ■</div>
+            <br>
+            <a class="feedback-link" href="">Please complete the feedback form to receive your certificate</a>
+
+            <form>
+                <button formaction="index.html">Restart</button>
+            </form>
+        </div>
+    </div>
 </body>
+
+<script src="matrix.js"></script>
 
 </html>

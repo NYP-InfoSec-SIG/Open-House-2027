@@ -4,36 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOC Console // Select Role</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="index.css">
 </head>
-<style>
-    body{
-        text-align: center;
-    }
-    img{
-        height: 200px;   
-    }
-    a{
-        display:inline-block;
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-</style>
 
-<body style='text-align: center;'>
-    <p>
-        Welcome Operator. Choose Your Role.
-    </p>
-    <p>
-        Select A Role
-        <br>
-        <br>
-        <a href = 'Defense_Start.html'><br><img src = 'The_Bird.jpg'><br>
-            Defender</a>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ OPEN HOUSE // CYBER RANGE ]<span class="cursor"></span></span>
+            <span class="led secure"><span class="dot"></span>AWAITING OPERATOR</span>
+        </div>
 
-        <a href = 'Attack_Start.html'><img src = 'The_Bird.jpg'><br>
-            Attacker</a>
-    </p>
+        <p class="intro">Welcome Operator. Choose Your Role.</p>
+        <p class="prompt">Select A Role</p>
+
+        <div class="roles">
+            <a class="role defender" href="Defence_Start.html">
+                <img src="The_Bird.jpg" alt="Defender">
+                Defender
+            </a>
+
+            <a class="role attacker" href="Attack_Start.html">
+                <img src="The_Bird.jpg" alt="Attacker">
+                Attacker
+            </a>
+        </div>
+    </div>
 </body>
+
+<script src="matrix.js"></script>
 
 </html>
