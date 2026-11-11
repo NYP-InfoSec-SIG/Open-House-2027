@@ -4,33 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Red Team // Mission Briefing</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Attack_Start.css">
 </head>
-<style>
-    div{
-        display:flex;
-        justify-content: center;
-    }
-</style>
 
 <body>
-    <div>
-        <p></p>
-    </div>
-    <div>
-        <video src="Open House 2027 Attacker Mission Briefing.mp4" height = 560px controls></video>
-    </div>
-    
-    <br>
-    <br>
-    <Div>
-        <form action="Activity_Start.html">
-        <Label>Finished Watching?</Label>
-        <button>Let's Do This!</button>
-    </form>
-    </Div>
-    
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ RED TEAM // MISSION BRIEFING ]<span class="cursor"></span></span>
+            <span class="led"><span class="dot"></span>BRIEFING IN PROGRESS</span>
+        </div>
 
+        <div class="viewer">
+            <video src="Open House 2027 Attacker Mission Briefing.mp4" height = 560px controls></video>
+        </div>
+
+        <div class="confirm">
+            <form action="Activity_Start.html">
+                <label>Finished Watching?</label>
+                <button>Let's Do This!</button>
+            </form>
+        </div>
+    </div>
 </body>
+
+<script src="matrix.js"></script>
 
 </html>

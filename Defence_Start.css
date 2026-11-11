@@ -1,0 +1,72 @@
+/* ============================================================
+   Defence_Start — blue team briefing page
+   (loads after defense.css)
+   ============================================================ */
+
+body {
+    padding-bottom: 0;
+}
+
+.wrap {
+    max-width: 1000px;
+    padding: 0 16px 16px;
+}
+
+/* Blue team briefing: calm green LED instead of the alert red */
+.led.secure {
+    color: var(--neon);
+}
+
+/* Slideshow frame, sized to fit the viewport at 16:9 */
+.viewer {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 14px;
+}
+
+.viewer iframe {
+    width: min(100%, calc((100vh - 190px) * 16 / 9));
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    background: var(--panel);
+    box-shadow: 0 0 22px rgba(0, 255, 156, 0.12);
+}
+
+/* Confirm form */
+.confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.confirm label {
+    margin: 0;
+}
+
+.confirm button {
+    background: transparent;
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.confirm button:hover {
+    background: var(--neon);
+    color: #041009;
+    box-shadow: 0 0 16px rgba(0, 255, 156, 0.6);
+}
