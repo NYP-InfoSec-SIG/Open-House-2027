@@ -63,7 +63,7 @@ body {
     max-width: 100%;
     object-fit: cover;
     border-radius: 6px;
-    border: 1px solid var(--dim);
+    /* border: 1px solid var(--dim); */
 }
 
 .role:hover,
