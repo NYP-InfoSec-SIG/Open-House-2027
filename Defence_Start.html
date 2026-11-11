@@ -4,35 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blue Team // Mission Briefing</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="Defence_Start.css">
 </head>
-<style>
-    div{
-        display:flex;
-        justify-content: center;
-    }
-</style>
 
 <body>
-    <div>
-        <p></p>
-    </div>
-    <div>
-        <iframe
-        src="https://1drv.ms/p/c/f9584271f21f06f4/IQR_IUYwj4DFSb3yUtG93P6AAeFDn0_7C7H2u_jk3zdpaiM?em=2&amp;wdAr=1.7777777777777777"
-        width="960px" height="540px" frameborder="0" title="PowerPoint Viewer">.</iframe>
-    </div>
-    
-    <br>
-    <br>
-    <Div>
-        <form action="Activity_Start.html">
-        <Label>Finished Watching?</Label>
-        <button>Let's Do This!</button>
-    </form>
-    </Div>
-    
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ BLUE TEAM // MISSION BRIEFING ]<span class="cursor"></span></span>
+            <span class="led secure"><span class="dot"></span>BRIEFING IN PROGRESS</span>
+        </div>
 
+        <div class="viewer">
+            <iframe
+                src="https://1drv.ms/p/c/f9584271f21f06f4/IQR_IUYwj4DFSb3yUtG93P6AAeFDn0_7C7H2u_jk3zdpaiM?em=2&amp;wdAr=1.7777777777777777"
+                frameborder="0" title="PowerPoint Viewer">.</iframe>
+        </div>
+
+        <div class="confirm">
+            <form action="Activity_Start.html">
+                <label>Finished Watching?</label>
+                <button>Let's Do This!</button>
+            </form>
+        </div>
+    </div>
 </body>
+
+<script src="matrix.js"></script>
 
 </html>

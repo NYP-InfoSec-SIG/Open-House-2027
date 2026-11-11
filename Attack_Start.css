@@ -1,0 +1,73 @@
+/* ============================================================
+   Attack_Start — red team briefing page
+   (loads after defense.css)
+   ============================================================ */
+
+body {
+    padding-bottom: 0;
+}
+
+.wrap {
+    max-width: 1000px;
+    padding: 0 16px 16px;
+}
+
+/* Red team flavour: red LED instead of the default */
+.topbar .title {
+    color: var(--red);
+}
+
+/* Slideshow frame, sized to fit the viewport at 16:9 */
+.viewer {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 14px;
+}
+
+.viewer iframe {
+    width: min(100%, calc((100vh - 190px) * 16 / 9));
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    background: var(--panel);
+    box-shadow: 0 0 22px rgba(0, 255, 156, 0.12);
+}
+
+/* Confirm form */
+.confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.confirm form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.confirm label {
+    margin: 0;
+}
+
+.confirm button {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.confirm button:hover {
+    background: var(--red);
+    color: #0a0002;
+    box-shadow: 0 0 16px rgba(255, 75, 92, 0.6);
+}

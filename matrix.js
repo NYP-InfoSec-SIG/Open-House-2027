@@ -1,6 +1,5 @@
 // ============================================================
 // Shared decorative "Matrix rain" background for Defense pages.
-// Expects a <canvas id="matrix"></canvas> in the page.
 // ============================================================
 (function () {
     const canvas = document.getElementById('matrix');
