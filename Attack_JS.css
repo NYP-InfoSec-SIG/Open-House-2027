@@ -1,0 +1,63 @@
+/* ============================================================
+   Attack_JS — fake "Starry Skies" login page
+   (loads after defense.css and attack.css)
+   ============================================================ */
+
+/* The opponent's site keeps its space background */
+.target {
+    background: #000 url("Space.jpeg") center / cover no-repeat;
+}
+
+.target-body {
+    padding: 14px 20px 20px;
+}
+
+.target h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 6px 0 16px;
+    color: #f8f9fa;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 22px 26px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin: 0 0 4px;
+    color: #fff;
+    letter-spacing: 0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="button"] {
+    width: 100%;
+}
+
+.form-group input[type="text"] {
+    text-align: left;
+}
+
+#fail {
+    margin: 4px 0;
+}
+
+#hint {
+    margin: 4px 0;
+}

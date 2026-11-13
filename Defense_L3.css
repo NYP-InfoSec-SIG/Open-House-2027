@@ -166,3 +166,8 @@ input[type="button"] {
 #fail {
     margin: 14px 0;
 }
+
+/* Blue team title */
+.topbar .title {
+    color: var(--blue);
+}

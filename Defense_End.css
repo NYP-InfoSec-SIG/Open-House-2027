@@ -15,22 +15,22 @@ body {
 
 .badge {
     display: inline-block;
-    border: 2px solid var(--neon);
+    border: 2px solid var(--blue);
     border-radius: 10px;
     padding: 14px 30px;
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: var(--neon);
-    text-shadow: 0 0 14px rgba(0, 255, 156, 0.7);
-    box-shadow: 0 0 26px rgba(0, 255, 156, 0.4);
+    color: var(--blue);
+    text-shadow: 0 0 14px rgba(77, 163, 255, 0.7);
+    box-shadow: 0 0 26px rgba(77, 163, 255, 0.4);
     animation: secpulse 2s infinite;
     margin-bottom: 26px;
 }
 
 @keyframes secpulse {
     50% {
-        box-shadow: 0 0 40px rgba(0, 255, 156, 0.75);
+        box-shadow: 0 0 40px rgba(77, 163, 255, 0.75);
     }
 }
 

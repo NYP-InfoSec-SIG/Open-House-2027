@@ -1,0 +1,91 @@
+/* ============================================================
+   Shared red-team styles for Attack_JS.html and Attack_Hidden.html
+   (loads after defense.css, before the page-specific file)
+   ============================================================ */
+
+body {
+    padding-bottom: 0;
+}
+
+.wrap {
+    max-width: 980px;
+    padding: 0 16px 16px;
+}
+
+/* Red team flavour */
+.topbar .title {
+    color: var(--red);
+}
+
+/* Narrator / intel panel */
+#helper {
+    border-left: 3px solid var(--red);
+    background: rgba(255, 75, 92, 0.08);
+    color: #ffd5d9;
+    margin: 0 0 12px;
+    padding: 10px 16px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+#helper::before {
+    content: "[INTEL] ";
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* The opponent's website, shown inside a framed "target" window */
+.target {
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    background: #000;
+    box-shadow: 0 0 22px rgba(255, 75, 92, 0.12);
+    overflow: hidden;
+    margin: 10px 0 14px;
+}
+
+.target-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #0c1a24;
+    border-bottom: 1px solid var(--dim);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6fd8b8;
+    text-align: left;
+}
+
+.target-bar i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.target-bar i:nth-child(1) {
+    background: var(--red);
+}
+
+.target-bar i:nth-child(2) {
+    background: var(--amber);
+}
+
+.target-bar i:nth-child(3) {
+    background: var(--neon);
+}
+
+.target-bar span {
+    margin-left: 8px;
+}
+
+/* The fake site keeps its own plain look, on purpose */
+.target-body {
+    padding: 16px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #fff;
+}

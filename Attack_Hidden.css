@@ -1,0 +1,145 @@
+/* ============================================================
+   Attack_Hidden — fake "Starry Skies" solar system page
+   (loads after defense.css and attack.css)
+   ============================================================ */
+
+.wrap {
+    max-width: 1200px;
+}
+
+/* Alert shown by Attack_Hidden.js after a few seconds on a planet */
+#funny {
+    margin: 0 0 10px;
+    padding: 8px 14px;
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    background: rgba(255, 75, 92, 0.15);
+    color: var(--red);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#funny:empty {
+    display: none;
+}
+
+/* Fake site navigation (links are intentionally dead) */
+.site-nav ul {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 33px;
+    font-size: 1.4rem;
+    font-weight: 100;
+}
+
+.site-nav a {
+    color: #f8f9fa;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.headline {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 8px 0 4px;
+}
+
+#Name {
+    text-align: center;
+    font-size: 1.6rem;
+    min-height: 1.4em;
+    margin: 0;
+}
+
+#fact {
+    display: block;
+    text-align: center;
+    margin: 0 auto 6px;
+    width: 60%;
+    min-height: 4.2em;
+    font-size: 1rem;
+}
+
+/* Planet row */
+.planets {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 18px;
+}
+
+.planets img {
+    width: 50px;
+}
+
+.planet {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.planets img.giant {
+    width: 100px;
+}
+
+.planets img#sun {
+    width: 250px;
+    max-width: 250px;
+    margin-bottom: -10px;
+    margin-right: -30px;
+    margin-left: -50px;
+}
+
+.planets img#Saturn {
+    width: 140px;
+    margin-bottom: -50px;
+    margin-right: -30px;
+    margin-left: -10px;
+}
+
+.planets img#Neptune {
+    width: 175px;
+    margin-right: -40px;
+    margin-left: -40px;
+}
+
+/* The hidden fact paragraphs only exist so the JS can copy their text */
+.planets li > p {
+    display: none;
+}
+
+/* Bait page list at the bottom */
+.wordlist {
+    border: 1px dashed var(--dim);
+    border-radius: 6px;
+    background: var(--panel);
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.wordlist .tag {
+    margin: 0 0 4px;
+    color: var(--amber);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.wordlist p {
+    margin: 0;
+    color: #c9ffe9;
+    font-size: 15px;
+}

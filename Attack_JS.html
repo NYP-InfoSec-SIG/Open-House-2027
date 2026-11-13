@@ -5,130 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opponent Website</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="defense.css">
+    <link rel="stylesheet" href="attack.css">
+    <link rel="stylesheet" href="Attack_JS.css">
+    <script src="Attack_JS.js" defer></script>
 </head>
-<style>
-    h1>ul>li {
-    margin-top: 10px;
-    display: inline-block;
-    margin-left: 33px;
-    justify-content: center;
-}& a{
-    color: white;
-}
-body{
-    font-family: Arial, sans-serif;
-    font-size: 17px;
-    background-image: url("Space.jpeg"); /* src: sripfoto/ Adobe*/
-    background-color: black;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    margin-left: 10px;
-    
-}
-h1 > ul{
-    text-align: center;
-    color: #f8f9fa;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    font-weight: 100;
-}
-    h1 {
-        text-align: center;
-    }
-
-    .form-container {
-        background-color: #000000;
-        padding: 30px;
-        border-radius: 10px;
-        margin-top: 40px;
-        /* display:flex; */
-        justify-self: center;
-        justify-items: right;
-        max-width:300px;
-        & > *  {
-        justify-self: center;
-        width:200px;
-        &>input{
-            width:192px;
-            height:19px
-        }
-    }
-        & > * > input[type='button']{
-            width:200px;
-            align-self:end
-        }
-        
-    }
-    
-    #helper{
-            background-color: darkred;
-            color: white;
-            border-radius: 10px;
-            border-width: 3px;
-            border-style: dashed;
-            border-color: red;
-            font-size: 100%;
-            text-align: center;
-        }
-</style>
-<script>
-    function verify() {
-
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        console.log(username == "administrator" && password == "nYp0H27")
-        if ((username == "administrator") && (password == "nYp0H27")) {
-            window.location.replace("Attack_Hidden.html");
-        }
-        else {
-            document.getElementById('fail').innerHTML = "Wrong Username or Password, please try again";
-        }
-    }
-    setInterval(() => { document.getElementById('hint').innerHTML='Are you still stuck? You can use F12 or Ctrl+U on Chrome to view the sourcecode of the website'
-        
-    }, 30000);
-    
-</script>
 
 <body>
-    <p id="helper">OK, this is our target. It looks like a regualr website for astronomy enthusiasts, but there's a flag we are looking for hidden inside.<br>We are going to have to find a way in. Maybe there's a way to inspect the source code of this page?</p>
-    <!-- Start of fake website --> <!-- STILL MOCKUP -->
+    <canvas id="matrix"></canvas>
+    <div class="wrap">
+        <div class="topbar">
+            <span class="title">[ RED TEAM // TARGET RECON ]<span class="cursor"></span></span>
+            <span class="led"><span class="dot"></span>TARGET LOCKED</span>
+        </div>
 
+        <p id="helper">OK, this is our target. It looks like a regualr website for astronomy enthusiasts, but there's a flag we are looking for hidden inside.<br>We are going to have to find a way in. Maybe there's a way to inspect the source code of this page?</p>
 
-    <h1>Starry Skies<br>Login</h1>
+        <!-- Start of fake website --> <!-- STILL MOCKUP -->
+        <div class="target">
+            <div class="target-bar"><i></i><i></i><i></i><span>Target // Starry Skies</span></div>
+            <div class="target-body">
+                <h1>Starry Skies<br>Login</h1>
 
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username">
+                    </div>
 
-<div class="form-container">
-    <div class="form-group">
-        <label for='username' style="display: block;">Username:</label>
-        <input type="text" style='display:inline-block;' id='username'>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="text" id="password">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="button" value="Log In" onclick="verify()">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p id="fail"></p>
+        <!-- end of fake website -->
+
+        <p id="hint"></p>
     </div>
-
-    <div class="form-group">
-
-        <label for='password' style="display: block;">Password:
-            <pre style='display:inline-block'></pre>
-        </label>
-        <input type="text" style='display:inline-block;' id='password'>
-
-
-    </div>
-
-    <div class="form-group">
-            <pre style='display:inline-block'></pre>
-        <input type="button" value="Log In" onclick="verify()" >
-    </div>
-    
-</div>
-    
-
-
-
-    <p id='fail'></p>
-    <!-- end of fake website -->
-
-    <p id="hint" style="text-align: center;"></p>
 </body>
+
+<script src="matrix.js"></script>
 
 </html>
