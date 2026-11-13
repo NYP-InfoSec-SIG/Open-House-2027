@@ -11,7 +11,24 @@
     <link rel="stylesheet" href="defense.css">
     <link rel="stylesheet" href="attack.css">
     <link rel="stylesheet" href="Attack_JS.css">
-    <script src="Attack_JS.js" defer></script>
+    <script defer>
+        function verify() {
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            console.log(username == "administrator" && password == "nYp0H27")
+            if ((username == "administrator") && (password == "nYp0H27")) {
+                window.location.replace("Attack_Hidden.html");
+            }
+            else {
+                document.getElementById('fail').innerHTML = "Wrong Username or Password, please try again";
+            }
+        }
+        setInterval(() => {
+            document.getElementById('hint').innerHTML = 'Are you still stuck? You can use F12 or Ctrl+U on Chrome to view the sourcecode of the website'
+
+        }, 30000);
+    </script>
 </head>
 
 <body>
@@ -22,7 +39,9 @@
             <span class="led"><span class="dot"></span>TARGET LOCKED</span>
         </div>
 
-        <p id="helper">OK, this is our target. It looks like a regualr website for astronomy enthusiasts, but there's a flag we are looking for hidden inside.<br>We are going to have to find a way in. Maybe there's a way to inspect the source code of this page?</p>
+        <p id="helper">OK, this is our target. It looks like a regualr website for astronomy enthusiasts, but there's a
+            flag we are looking for hidden inside.<br>We are going to have to find a way in. Maybe there's a way to
+            inspect the source code of this page?</p>
 
         <!-- Start of fake website --> <!-- STILL MOCKUP -->
         <div class="target">
